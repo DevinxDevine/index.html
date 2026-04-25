@@ -1,0 +1,23 @@
+{
+  "crons": [
+    {
+      "path": "/api/internal/send-reminders",
+      "schedule": "0 12 * * *"
+    },
+    {
+      "path": "/api/internal/cleanup-media",
+      "schedule": "0 2 * * 0"
+    }
+  ],
+  "functions": {
+    "src/app/api/stripe/webhook/route.ts": {
+      "maxDuration": 30
+    },
+    "src/app/api/internal/send-reminders/route.ts": {
+      "maxDuration": 60
+    },
+    "src/app/api/internal/cleanup-media/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}
